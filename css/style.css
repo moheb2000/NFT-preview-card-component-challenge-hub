@@ -1,2 +1,136 @@
 @import "reset.css";
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+*, *::before, *::after {box-sizing: inherit;}
+html {box-sizing: border-box;}
+
+:root {
+  --cl-soft-blue: hsl(215, 51%, 70%);
+  --cl-cyan: hsl(178, 100%, 50%);
+  --cl-very-dark-blue-main: hsl(217, 54%, 11%);
+  --cl-very-dark-blue-card: hsl(216, 50%, 16%);
+  --cl-very-dark-blue-line: hsl(215, 32%, 27%);
+  --cl-white: hsl(0, 0%, 100%);
+
+  --fs-default: 18px;
+
+  font: 400 var(--fs-default) Outfit;
+}
+
+body {
+  background: var(--cl-very-dark-blue-main);
+}
+
+img {
+  width: 100%;
+}
+
+.card {
+  width: 90%;
+  max-width: 375px;
+  margin: 2rem auto;
+  background: var(--cl-very-dark-blue-card);
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.card__cover {
+  border-radius: 1rem;
+  overflow: hidden;
+  position: relative;
+}
+
+.card__cover__hover {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--cl-cyan);
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s;
+}
+
+.card__cover__hover__view {
+  width: 15%;
+}
+
+.card__cover__hover:hover {
+  opacity: .5;
+  transition: opacity 1s;
+  cursor: pointer;
+}
+
+.card__title {
+  color: var(--cl-white);
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 1rem 0;
+  transition: color 1s;
+}
+
+.card__title:hover,
+.card__author__name:hover {
+  color: var(--cl-cyan);
+  cursor: pointer;
+  transition: color 1s;
+}
+
+.card__desc {
+  color: var(--cl-soft-blue);
+  font-weight: 300;
+  line-height: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.card__row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.card__price {
+  color: var(--cl-cyan);
+  font-weight: 600;
+}
+
+.card__price::before {
+  content: url("../images/icon-ethereum.svg");
+  vertical-align: middle;
+  padding-right: 8px;
+}
+
+.card__time {
+  color: var(--cl-soft-blue);
+}
+
+.card__time::before {
+  content: url("../images/icon-clock.svg");
+  vertical-align: middle;
+  padding-right: 8px;
+}
+
+.card__author {
+  padding-top: 1rem;
+  border-top: 2px solid var(--cl-very-dark-blue-line);
+  color: var(--cl-soft-blue);
+}
+
+.card__author__avatar {
+  width: 32px;
+  height: 32px;
+  vertical-align: middle;
+  margin-right: 16px;
+  border-radius: 100px;
+  overflow: hidden;
+  border: 1px solid white;
+}
+
+.card__author__name {
+  color: var(--cl-white);
+  transition: color 1s;
+}
